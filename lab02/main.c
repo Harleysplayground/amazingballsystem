@@ -71,14 +71,14 @@ void main() {
     __C30_UART = 1;
     lcd_initialize();
     lcd_clear();
-    lcd_locate(0, 0);
-    lcd_printf("Timer: 00:00.000");
 
     CLEARLED(LED4_TRIS);
     CLEARLED(LED1_TRIS);
     CLEARLED(LED2_TRIS);
 
     uint16_t tick = 0;
+    uint16_t timer_read;
+    float milis;
 
     /* Trigger & interrupt */
     AD1PCFGHbits.PCFG20 = 1;
@@ -125,14 +125,14 @@ void main() {
     while (1) {
         TOGGLELED(LED4_PORT);
 
-        if (++tick == 2000) {
+        if (++tick == 12000) {
             tick = 0;
             lcd_locate(0, 0);
             lcd_printf("Timer: %02d:%02d.%03d", minute, second, msecond);
 
-            uint16_t timer_read = TMR3;
+            timer_read = TMR3;
             TMR3 = 0;
-            float milis = timer_read / 2000.0 / 12800.0;
+            milis = timer_read / 2000.0 / 12800.0;
             timer_read /= 2000;
             lcd_locate(0, 1);
             lcd_printf("%02u cyc, %2.4f ms", timer_read, milis);
