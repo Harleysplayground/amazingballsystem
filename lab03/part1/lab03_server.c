@@ -17,7 +17,7 @@
 int main(int argc, char* argv[])
 {
     double troll_pct=0;		// Perturbation % for the troll (if needed)
-    int ifd,ofd,i,N,troll=0;	// Input and Output file descriptors (serial/troll)
+    int ifd,ofd,troll=0;	// Input and Output file descriptors (serial/troll)
     char str[MSG_BYTES_MSG],opt;	// String input
     struct termios oldtio, tio;	// Serial configuration parameters
     int VERBOSE = 0;		// Verbose output - can be overriden with -v
@@ -103,7 +103,6 @@ int main(int argc, char* argv[])
         sendbuf[1] = (crc >> 8) & 0xFF;
         sendbuf[3] = count;
         strcpy(&sendbuf[4], str);
-        printf("TEST: reached ack loop\n");
 
         while (!ack)
         {
@@ -123,11 +122,9 @@ int main(int argc, char* argv[])
             // WRITE ME: Wait for MSG_ACK or MSG_NACK
             //
 
-            int readret = read(ifd, &ack, 1); 
+            read(ifd, &ack, 1); 
 
             printf("%s\n", ack ? "ACK" : "NACK, resending");
-
-            printf("TEST: %d ack = %x\n", readret, ack);
         }
         printf("\n");
     }
