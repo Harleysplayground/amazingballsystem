@@ -81,9 +81,9 @@ int main(int argc, char* argv[])
 
         int count = 0;
         /*
-        while (((str[count] = fgetc(stdin)) != EOF) && (str[count++] != '\n') && count < MSG_BYTES_MSG_LEN);
-        str[count - 1] = '\0';
-        */
+           while (((str[count] = fgetc(stdin)) != EOF) && (str[count++] != '\n') && count < MSG_BYTES_MSG_LEN);
+           str[count - 1] = '\0';
+           */
         fgets(str, MSG_BYTES_MSG, stdin);
         count = strlen(str);
         str[count - 1] = 0;
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 
         while (!ack)
         {
-            printf("Sending (attempt %d)...\n", ++attempts);
+            printf("Sending (attempt %d), CRC = %x...\n", ++attempts, crc);
 
 
             // 

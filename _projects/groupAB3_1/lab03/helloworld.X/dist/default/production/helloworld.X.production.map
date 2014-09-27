@@ -63,24 +63,22 @@ Archive member included because of file (symbol)
                               ../lcd.a(lcd.o) (__delay32)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(data_init_standard.o)
                               /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(crt0_standard.o) (_data_init_standard)
-/opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(udivsi3.o)
-                              build/default/production/_ext/1472/flexserial.o (__udivsi3)
-/opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopsuxX.XXo)
-                              build/default/production/_ext/1472/main.o (_printf_cdnopsuxX)
+/opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopuxX.XXo)
+                              build/default/production/_ext/1472/main.o (_printf_cdnopuxX)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(_iob.o)
                               build/default/production/_ext/1472/main.o (_iob)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fflush.o)
                               build/default/production/_ext/1472/main.o (fflush)
-/opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo)
-                              /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopsuxX.XXo) (_vfprintf_cdnopsuxX)
+/opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo)
+                              /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopuxX.XXo) (_vfprintf_cdnopuxX)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fputc.o)
-                              /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo) (fputc)
+                              /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo) (fputc)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(flsbuf.o)
                               /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fputc.o) (_flsbuf)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(write.o)
                               /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fflush.o) (write)
 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(divmoddi3.o)
-                              /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo) (__udivdi3)
+                              /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo) (__udivdi3)
 
 
 Selected CodeGuard Options:
@@ -101,13 +99,13 @@ Program Memory  [Origin = 0x200, Length = 0x2a9fe]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x9c2           0xea3  (3747)
-.const                       0xbc2                0x18            0x24  (36)
-.text                        0xbda               0x4ce           0x735  (1845)
-.dinit                      0x10a8                0xce           0x135  (309)
-.text                       0x1176                0xdc           0x14a  (330)
+.text                        0x200               0x9a2           0xe73  (3699)
+.const                       0xba2                 0xc            0x12  (18)
+.text                        0xbae               0x35e           0x50d  (1293)
+.dinit                       0xf0c                0xce           0x135  (309)
+.text                        0xfda               0x14a           0x1ef  (495)
 
-                     Total program memory used (bytes):         0x187b  (6267) 2%
+                     Total program memory used (bytes):         0x16b6  (5814) 2%
 
 
 Data Memory  [Origin = 0x800, Length = 0x7800]
@@ -165,97 +163,95 @@ External Symbols in Program Memory (by address):
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x0002b0                  __DefaultInterrupt
-                  0x000318                  ___udivsi3
-                  0x0003a4                  ___udivmoddi3
-                  0x00042c                  ___udivdi3
-                  0x00043a                  ___umoddi3
-                  0x000442                  ___divdi3
-                  0x000470                  ___moddi3
-                  0x000544                  _OpenUART1
-                  0x00054c                  __printf_cdnopsuxX
-                  0x00055a                  _fflush
-                  0x0005ae                  __vfprintf_cdnopsuxX
-                  0x000bda                  _lcd_initialize
-                  0x000bee                  _lcd_send
-                  0x000c12                  _lcd_send_str
-                  0x000c36                  _lcd_send_cmd
-                  0x000c46                  _clearLCD
-                  0x000c54                  _setDebug
-                  0x000c68                  _backLight
-                  0x000c7c                  _drawCircle
-                  0x000ca2                  _toggleCRLF
-                  0x000cb0                  _eraseBlock
-                  0x000cd6                  _resetLCD
-                  0x000ce4                  _changeBaud
-                  0x000d0a                  _toggleFont
-                  0x000d18                  _setFontMode
-                  0x000d2c                  _drawSprite
-                  0x000d52                  _drawLine
-                  0x000d7e                  _uploadSprite
-                  0x000dba                  _drawBox
-                  0x000de6                  _togglePixel
-                  0x000e48                  _drawFilledBox
-                  0x000e74                  _reverseColor
-                  0x000e82                  _toggleSplash
-                  0x000e90                  _drawData
-                  0x000eea                  _gotoPosition
-                  0x000f0c                  _gotoLine
-                  0x000f38                  _main
-                  0x001176                  _uart2_init
-                  0x0011bc                  _uart2_putc
-                  0x0011e6                  _uart2_getc
-                  0x001210                  _crc_update
+                  0x000384                  ___udivmoddi3
+                  0x00040c                  ___udivdi3
+                  0x00041a                  ___umoddi3
+                  0x000422                  ___divdi3
+                  0x000450                  ___moddi3
+                  0x000524                  _OpenUART1
+                  0x00052c                  __printf_cdnopuxX
+                  0x00053a                  _fflush
+                  0x00058e                  __vfprintf_cdnopuxX
+                  0x000bae                  _lcd_initialize
+                  0x000bc2                  _lcd_send
+                  0x000be6                  _lcd_send_str
+                  0x000c0a                  _lcd_send_cmd
+                  0x000c1a                  _clearLCD
+                  0x000c28                  _setDebug
+                  0x000c3c                  _backLight
+                  0x000c50                  _drawCircle
+                  0x000c76                  _toggleCRLF
+                  0x000c84                  _eraseBlock
+                  0x000caa                  _resetLCD
+                  0x000cb8                  _changeBaud
+                  0x000cde                  _toggleFont
+                  0x000cec                  _setFontMode
+                  0x000d00                  _drawSprite
+                  0x000d26                  _drawLine
+                  0x000d52                  _uploadSprite
+                  0x000d8e                  _drawBox
+                  0x000dba                  _togglePixel
+                  0x000e1c                  _drawFilledBox
+                  0x000e48                  _reverseColor
+                  0x000e56                  _toggleSplash
+                  0x000e64                  _drawData
+                  0x000ebe                  _gotoPosition
+                  0x000ee0                  _gotoLine
+                  0x000fda                  _uart2_init
+                  0x00100e                  _uart2_putc
+                  0x001038                  _uart2_getc
+                  0x001062                  _main
+                  0x0010e2                  _crc_update
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x000544                  _OpenUART1
+                  0x000524                  _OpenUART1
                   0x0002b0                  __DefaultInterrupt
                   0xf80004                  __FGS.sec
                   0x000236                  ___delay32
-                  0x000442                  ___divdi3
-                  0x000470                  ___moddi3
-                  0x00042c                  ___udivdi3
-                  0x0003a4                  ___udivmoddi3
-                  0x000318                  ___udivsi3
-                  0x00043a                  ___umoddi3
+                  0x000422                  ___divdi3
+                  0x000450                  ___moddi3
+                  0x00040c                  ___udivdi3
+                  0x000384                  ___udivmoddi3
+                  0x00041a                  ___umoddi3
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
-                  0x00054c                  __printf_cdnopsuxX
+                  0x00052c                  __printf_cdnopuxX
                   0x000226                  __psv_init
                   0x000200                  __resetPRI
-                  0x0005ae                  __vfprintf_cdnopsuxX
-                  0x000c68                  _backLight
-                  0x000ce4                  _changeBaud
-                  0x000c46                  _clearLCD
-                  0x001210                  _crc_update
-                  0x000dba                  _drawBox
-                  0x000c7c                  _drawCircle
-                  0x000e90                  _drawData
-                  0x000e48                  _drawFilledBox
-                  0x000d52                  _drawLine
-                  0x000d2c                  _drawSprite
-                  0x000cb0                  _eraseBlock
-                  0x00055a                  _fflush
-                  0x000f0c                  _gotoLine
-                  0x000eea                  _gotoPosition
-                  0x000bda                  _lcd_initialize
-                  0x000bee                  _lcd_send
-                  0x000c36                  _lcd_send_cmd
-                  0x000c12                  _lcd_send_str
-                  0x000f38                  _main
-                  0x000cd6                  _resetLCD
-                  0x000e74                  _reverseColor
-                  0x000c54                  _setDebug
-                  0x000d18                  _setFontMode
-                  0x000ca2                  _toggleCRLF
-                  0x000d0a                  _toggleFont
-                  0x000de6                  _togglePixel
-                  0x000e82                  _toggleSplash
-                  0x0011e6                  _uart2_getc
-                  0x001176                  _uart2_init
-                  0x0011bc                  _uart2_putc
-                  0x000d7e                  _uploadSprite
+                  0x00058e                  __vfprintf_cdnopuxX
+                  0x000c3c                  _backLight
+                  0x000cb8                  _changeBaud
+                  0x000c1a                  _clearLCD
+                  0x0010e2                  _crc_update
+                  0x000d8e                  _drawBox
+                  0x000c50                  _drawCircle
+                  0x000e64                  _drawData
+                  0x000e1c                  _drawFilledBox
+                  0x000d26                  _drawLine
+                  0x000d00                  _drawSprite
+                  0x000c84                  _eraseBlock
+                  0x00053a                  _fflush
+                  0x000ee0                  _gotoLine
+                  0x000ebe                  _gotoPosition
+                  0x000bae                  _lcd_initialize
+                  0x000bc2                  _lcd_send
+                  0x000c0a                  _lcd_send_cmd
+                  0x000be6                  _lcd_send_str
+                  0x001062                  _main
+                  0x000caa                  _resetLCD
+                  0x000e48                  _reverseColor
+                  0x000c28                  _setDebug
+                  0x000cec                  _setFontMode
+                  0x000c76                  _toggleCRLF
+                  0x000cde                  _toggleFont
+                  0x000dba                  _togglePixel
+                  0x000e56                  _toggleSplash
+                  0x001038                  _uart2_getc
+                  0x000fda                  _uart2_init
+                  0x00100e                  _uart2_putc
+                  0x000d52                  _uploadSprite
 
 Memory Configuration
 
@@ -316,7 +312,7 @@ LOAD /opt/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33F/libp33FJ256MC710-coff.
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x9c2
+.text             0x000200        0x9a2
  *(.init)
  .init            0x000200         0x36 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(crt0_standard.o)
                   0x000200                  _reset
@@ -336,33 +332,31 @@ LOAD /opt/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33F/libp33FJ256MC710-coff.
  .libc            0x0002b4         0x64 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(write.o)
                   0x0002b8                  write
  *(.libm)
- .libm            0x000318         0x20 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(udivsi3.o)
-                  0x000318                  __udivsi3
- .libm            0x000338        0x20c /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(divmoddi3.o)
-                  0x0003a4                  __udivmoddi3
-                  0x00042c                  __udivdi3
-                  0x00043a                  __umoddi3
-                  0x000442                  __divdi3
-                  0x000470                  __moddi3
+ .libm            0x000318        0x20c /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(divmoddi3.o)
+                  0x000384                  __udivmoddi3
+                  0x00040c                  __udivdi3
+                  0x00041a                  __umoddi3
+                  0x000422                  __divdi3
+                  0x000450                  __moddi3
  *(.libdsp)
  *(.lib*)
- .libperi         0x000544          0x8 /opt/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33F/libp33FJ256MC710-coff.a(OpenUART1.o)
-                  0x000544                  OpenUART1
- .libc._printf_cdnopsuxX._printf_cdnopsuxX
-                  0x00054c          0xe /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopsuxX.XXo)
-                  0x00054c                  _printf_cdnopsuxX
+ .libperi         0x000524          0x8 /opt/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33F/libp33FJ256MC710-coff.a(OpenUART1.o)
+                  0x000524                  OpenUART1
+ .libc._printf_cdnopuxX._printf_cdnopuxX
+                  0x00052c          0xe /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopuxX.XXo)
+                  0x00052c                  _printf_cdnopuxX
  .libc.fflush.fflush
-                  0x00055a         0x54 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fflush.o)
-                  0x00055a                  fflush
- .libc._vfprintf_cdnopsuxX._vfprintf_cdnopsuxX
-                  0x0005ae        0x508 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo)
-                  0x0005ae                  _vfprintf_cdnopsuxX
+                  0x00053a         0x54 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fflush.o)
+                  0x00053a                  fflush
+ .libc._vfprintf_cdnopuxX._vfprintf_cdnopuxX
+                  0x00058e        0x508 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo)
+                  0x00058e                  _vfprintf_cdnopuxX
  .libc.fputc.fputc
-                  0x000ab6         0x88 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fputc.o)
-                  0x000ab6                  fputc
+                  0x000a96         0x88 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fputc.o)
+                  0x000a96                  fputc
  .libc._flsbuf._flsbuf
-                  0x000b3e         0x84 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(flsbuf.o)
-                  0x000b3e                  _flsbuf
+                  0x000b1e         0x84 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(flsbuf.o)
+                  0x000b1e                  _flsbuf
 
 usercode
  *(usercode)
@@ -2006,7 +2000,7 @@ LOAD default_isr
 LOAD heap
 
 __c30_signature
-                  0x000000         0x6c
+                  0x000000         0x66
  __c30_signature
                   0x000000          0x6 build/default/production/_ext/1472/main.o
  __c30_signature
@@ -2026,23 +2020,21 @@ __c30_signature
  __c30_signature
                   0x000030          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(data_init_standard.o)
  __c30_signature
-                  0x000036          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(udivsi3.o)
+                  0x000036          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopuxX.XXo)
  __c30_signature
-                  0x00003c          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(printf_cdnopsuxX.XXo)
+                  0x00003c          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(_iob.o)
  __c30_signature
-                  0x000042          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(_iob.o)
+                  0x000042          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fflush.o)
  __c30_signature
-                  0x000048          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fflush.o)
+                  0x000048          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo)
  __c30_signature
-                  0x00004e          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo)
+                  0x00004e          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fputc.o)
  __c30_signature
-                  0x000054          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(fputc.o)
+                  0x000054          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(flsbuf.o)
  __c30_signature
-                  0x00005a          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(flsbuf.o)
+                  0x00005a          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(write.o)
  __c30_signature
-                  0x000060          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-coff.a(write.o)
- __c30_signature
-                  0x000066          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(divmoddi3.o)
+                  0x000060          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libm-coff.a(divmoddi3.o)
 
 .ndata              0x0800          0x4
  .ndata             0x0800          0x4 build/default/production/_ext/1472/main.o
@@ -2050,10 +2042,10 @@ __c30_signature
                     0x0802                  error
 
 .data.dpowers       0x0804         0xa0
- .data.dpowers      0x0804         0xa0 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo)
+ .data.dpowers      0x0804         0xa0 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo)
 
 .data               0x08a4         0x2a
- .data              0x08a4         0x2a /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopsuxX.XXo)
+ .data              0x08a4         0x2a /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(doprnt_cdnopuxX.XXo)
 
 .data._iob          0x08ce         0x26
  .data._iob         0x08ce         0x26 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libc-coff.a(_iob.o)
@@ -2073,46 +2065,46 @@ __c30_signature
 .heap               0x08fc        0x400
  .heap              0x08fc        0x400 heap
 
-.const              0x8bc2         0x18 load address 0x000bc2  
- .const             0x8bc2         0x18 build/default/production/_ext/1472/main.o
+.const              0x8ba2          0xc load address 0x000ba2  
+ .const             0x8ba2          0xc build/default/production/_ext/1472/main.o
 
-.text             0x000bda        0x4ce
- .text            0x000bda        0x35e ../lcd.a(lcd.o)
-                  0x000bda                  lcd_initialize
-                  0x000bee                  lcd_send
-                  0x000c12                  lcd_send_str
-                  0x000c36                  lcd_send_cmd
-                  0x000c46                  clearLCD
-                  0x000c54                  setDebug
-                  0x000c68                  backLight
-                  0x000c7c                  drawCircle
-                  0x000ca2                  toggleCRLF
-                  0x000cb0                  eraseBlock
-                  0x000cd6                  resetLCD
-                  0x000ce4                  changeBaud
-                  0x000d0a                  toggleFont
-                  0x000d18                  setFontMode
-                  0x000d2c                  drawSprite
-                  0x000d52                  drawLine
-                  0x000d7e                  uploadSprite
-                  0x000dba                  drawBox
-                  0x000de6                  togglePixel
-                  0x000e48                  drawFilledBox
-                  0x000e74                  reverseColor
-                  0x000e82                  toggleSplash
-                  0x000e90                  drawData
-                  0x000eea                  gotoPosition
-                  0x000f0c                  gotoLine
- .text            0x000f38        0x170 build/default/production/_ext/1472/main.o
-                  0x000f38                  main
+.text             0x000bae        0x35e
+ .text            0x000bae        0x35e ../lcd.a(lcd.o)
+                  0x000bae                  lcd_initialize
+                  0x000bc2                  lcd_send
+                  0x000be6                  lcd_send_str
+                  0x000c0a                  lcd_send_cmd
+                  0x000c1a                  clearLCD
+                  0x000c28                  setDebug
+                  0x000c3c                  backLight
+                  0x000c50                  drawCircle
+                  0x000c76                  toggleCRLF
+                  0x000c84                  eraseBlock
+                  0x000caa                  resetLCD
+                  0x000cb8                  changeBaud
+                  0x000cde                  toggleFont
+                  0x000cec                  setFontMode
+                  0x000d00                  drawSprite
+                  0x000d26                  drawLine
+                  0x000d52                  uploadSprite
+                  0x000d8e                  drawBox
+                  0x000dba                  togglePixel
+                  0x000e1c                  drawFilledBox
+                  0x000e48                  reverseColor
+                  0x000e56                  toggleSplash
+                  0x000e64                  drawData
+                  0x000ebe                  gotoPosition
+                  0x000ee0                  gotoLine
 
-.dinit            0x0010a8         0xce
- .dinit           0x0010a8         0xce data_init
+.dinit            0x000f0c         0xce
+ .dinit           0x000f0c         0xce data_init
 
-.text             0x001176         0xdc
- .text            0x001176         0x9a build/default/production/_ext/1472/flexserial.o
-                  0x001176                  uart2_init
-                  0x0011bc                  uart2_putc
-                  0x0011e6                  uart2_getc
- .text            0x001210         0x42 build/default/production/_ext/1472/crc16.o
-                  0x001210                  crc_update
+.text             0x000fda        0x14a
+ .text            0x000fda         0x88 build/default/production/_ext/1472/flexserial.o
+                  0x000fda                  uart2_init
+                  0x00100e                  uart2_putc
+                  0x001038                  uart2_getc
+ .text            0x001062         0x80 build/default/production/_ext/1472/main.o
+                  0x001062                  main
+ .text            0x0010e2         0x42 build/default/production/_ext/1472/crc16.o
+                  0x0010e2                  crc_update

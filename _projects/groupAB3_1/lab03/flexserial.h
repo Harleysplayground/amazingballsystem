@@ -28,7 +28,7 @@ extern "C" {
 
 uint8_t uart2_getc(uint8_t* buf);
 int uart2_putc(uint8_t c);
-void uart2_init(uint16_t baud);
+void uart2_init();
 
 #endif	/* FLEXSERIAL_H */
 
