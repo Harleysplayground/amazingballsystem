@@ -1,28 +1,12 @@
 #include <p33Fxxxx.h>
 //do not change the order of the following 3 definitions
-#define FCY 12800000UL 
+#define FCY 12800000UL
 #include <stdio.h>
 #include <libpic30.h>
 
 #include "lcd.h"
-
-#define LED4_TRIS TRISAbits.TRISA10
-#define LED4_PORT PORTAbits.RA10
-#define LED4 10
-
-#define LED1_TRIS TRISAbits.TRISA4
-#define LED1_PORT PORTAbits.RA4
-#define LED1 4
-
-#define LED2_TRIS TRISAbits.TRISA5
-#define LED2_PORT PORTAbits.RA5
-#define LED2 5
-
-#define LED3_TRIS TRISAbits.TRISA9
-#define LED3_PORT PORTAbits.RA9
-#define LED3 9
-
-#define TRIGGER_THRESH 10000
+#include "flexserial.h"
+#include "crc16.h"
 
 
 /* Initial configuration by EE */
@@ -30,92 +14,111 @@
 _FOSCSEL(FNOSC_PRIPLL);
 
 // OSC2 Pin Function: OSC2 is Clock Output - Primary Oscillator Mode: XT Crystal
-_FOSC(OSCIOFNC_OFF & POSCMD_XT); 
+_FOSC(OSCIOFNC_OFF & POSCMD_XT);
 
 // Watchdog Timer Enabled/disabled by user software
 _FWDT(FWDTEN_OFF);
 
 // Disable Code Protection
-_FGS(GCP_OFF);  
+_FGS(GCP_OFF);
+
+int timeout = 0;
+int error = 0;
+
+/*void __attribute__((__interrupt__)) _T1Interrupt(void) {
+
+    timeout = 1;
+    IFS0bits.T1IF = 0;
+
+}*/
+
+int main(int argc, char** argv) {
+
+    uint16_t crc = 0;
+    uint8_t buffer1[4];
+    uint8_t buffer2[256];
+    uint8_t length;
+
+    __C30_UART = 1;
+    lcd_initialize();
+    lcd_clear();
+    lcd_locate(0, 0);
 
 
-void main(){
-	//Init LCD
-	__C30_UART=1;	
-	lcd_initialize();
-	lcd_clear();
-	lcd_locate(0,0);
-	lcd_printf("Group 01");
+    uart2_init(9600);
 
+
+    __builtin_write_OSCCONL(OSCCONL | 2);
+    T1CONbits.TON = 0; //Disable Timer
+    T1CONbits.TCS = 1; //Select external clock
+    T1CONbits.TSYNC = 0; //Disable Synchronization
+    T1CONbits.TCKPS = 0b00; //Select 1:1 Prescaler
+    TMR1 = 0x00; //Clear timer register
+    PR1 = 32767; //Load the period value
+    IPC0bits.T1IP = 0x01; // Set Timer1 Interrupt Priority Level
+    IFS0bits.T1IF = 0; // Clear Timer1 Interrupt Flag
+    //   IEC0bits.T1IE = 1; // Enable Timer1 interrupt
+    T1CONbits.TON = 1; // Start Timer
+
+
+
+
+
+    while (1) {
+        crc = 0;
+
+        while (!uart2_getc(&buffer1[0]));
+
+        TMR1 = 0x00;
+        IEC0bits.T1IE = 1;
+
+        while (!uart2_getc(&buffer1[1]));
+
+        while (!uart2_getc(&buffer1[2]));
+
+        while (!uart2_getc(&buffer1[3]));
+
+        length = buffer1[3];
+
+        int i;
+        for (i = 0; i < length; i++) {
+            while (!uart2_getc(&buffer2[i]) && (!timeout));
+            crc_update(crc, buffer2[i]);
+
+
+        }
+        IEC0bits.T1IE = 0;
+
+        
+        lcd_locate(0, 0);
+        lcd_printf("Errors: %d",error);
+        
+
+        if (timeout == 1) {
+            uart2_putc(0);
+            error++;
+            timeout = 0;
+
+            continue;
+        }
+
+        if ((buffer1[1] != ((crc >> 8) & 0xFF)) || (buffer1[2] != (crc & 0xFF))) {
+            uart2_putc(0);
+            error++;
+
+            continue;
+        }
+
+
+        uart2_putc(1);
+        buffer2[length] = 0;
         lcd_locate(0, 1);
-        lcd_printf("Matt Wallick");
+        lcd_printf("Message: %s", buffer2);
 
-        lcd_locate(0, 2);
-        lcd_printf("Haolin Zheng");
 
-        lcd_locate(0, 3);
-        lcd_printf("Albert Sun");
+    }
 
-        lcd_locate(0, 4);
-        lcd_printf("Counter: 0x00 (000)");
 
-        
-        uint16_t tick = 0;
-        uint8_t count = 0;
 
-        CLEARLED(LED4_TRIS);
-        CLEARLED(LED1_TRIS);
-        CLEARLED(LED2_TRIS);
-        CLEARLED(LED3_TRIS);
-
-        AD1PCFGHbits.PCFG20 = 1;
-        TRISEbits.TRISE8 = 1;
-        TRISDbits.TRISD10 = 1;
-        
-        uint8_t button_A_state = PORTEbits.RE8;
-        uint16_t button_A_state_count = 0;
-	
-	while(1){
-            if (++tick == 50000) {
-                tick = 0;
-                TOGGLELED(LED4_PORT);
-            }
-
-            /* debouncing algorithm */
-            if (PORTEbits.RE8 == button_A_state) {
-                button_A_state_count = 0;
-            } else {
-                if (++button_A_state_count > TRIGGER_THRESH) {
-                    /* flipping the state!!! */
-                    button_A_state = PORTEbits.RE8;
-                    button_A_state_count = 0;
-
-                    if (button_A_state == 0) {
-                        lcd_locate(11, 4);
-                        lcd_printf("%02x", ++count);
-                        lcd_locate(15, 4);
-                        lcd_printf("%03d", count);
-                    }
-                }
-            }
-
-            if (button_A_state == 0) {
-                SETLED(LED1_PORT);
-            } else {
-                CLEARLED(LED1_PORT);
-            }
-
-            if (PORTDbits.RD10 == 0) {
-                SETLED(LED2_PORT);
-            } else {
-                CLEARLED(LED2_PORT);
-            }
-
-            if (PORTDbits.RD10 != PORTEbits.RE8) {
-                SETLED(LED3_PORT);
-            } else {
-                CLEARLED(LED3_PORT);
-            }
-	}
+    return (0);
 }
-
