@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
     lcd_printf("U2INIT");
     lcd_locate(0, 1);
     while (1) {
-        char serialbuf = 0;
+        uint8_t serialbuf = 0;
         if (uart2_getc(&serialbuf)) {
             lcd_printf("%x ", serialbuf);
             uart2_putc(1);

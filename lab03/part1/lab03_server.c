@@ -84,6 +84,7 @@ int main(int argc, char* argv[])
            while (((str[count] = fgetc(stdin)) != EOF) && (str[count++] != '\n') && count < MSG_BYTES_MSG_LEN);
            str[count - 1] = '\0';
            */
+        printf("Message > ");
         fgets(str, MSG_BYTES_MSG, stdin);
         count = strlen(str);
         str[count - 1] = 0;
