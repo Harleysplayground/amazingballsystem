@@ -71,7 +71,6 @@ int main(int argc, char* argv[])
     tcflush(ifd, TCIFLUSH);
     tcsetattr(ifd, TCSANOW, &tio);
 
-
     while(1)
     {
 
