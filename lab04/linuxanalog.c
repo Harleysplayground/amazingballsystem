@@ -18,6 +18,4 @@ void das1602_init()
 void dac(uint16_t value)
 {
     outw(value, BADR4 + 0);
-    int i = 0;
-    while(i < 10000000); //TODO
 }
