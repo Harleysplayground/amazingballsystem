@@ -2,12 +2,12 @@ EXE = lab4
 
 CC = gcc
 CFLAGS = -c -g -Wall -Werror
-LDFLAGS = 
+LDFLAGS = -lrt
 
 all : lab4
 
 lab4 : linuxanalog.o lab4.o
-	$(CC) linuxanalog.o lab4.o -o lab4
+	$(CC) $(LDFLAGS) linuxanalog.o lab4.o -o lab4
 
 linuxanalog.o : linuxanalog.c
 	$(CC) $(CFLAGS) linuxanalog.c
