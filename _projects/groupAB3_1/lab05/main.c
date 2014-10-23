@@ -3,7 +3,7 @@
 #define FCY 12800000UL 
 #include <stdio.h>
 #include <libpic30.h>
-
+#include "flexmotor.h"
 #include "lcd.h"
 
 #define LED4_TRIS TRISAbits.TRISA10
@@ -110,7 +110,7 @@ void main() {
 
     int tick;
     unsigned int min_x, max_x, min_y, max_y, motor_x, motor_y;
-
+    int duty_x, duty_y;
     while (1) {
         debounce();
 
@@ -118,50 +118,74 @@ void main() {
 
             if (stage == 0) {
                 //MUST HAVE! clear conversion done bit
-                min_x = adc(4);
+                max_x = adc(4);
                 lcd_locate(0, 1);
-                lcd_printf("X max: %u", min_x);
+                lcd_printf("X max: %u", max_x);
 
             } else if (stage == 1 && button_A_state == 1) stage++;
 
             else if (stage == 2) {
-                max_x = adc(4);
+                min_x = adc(4);
                 lcd_locate(0, 2);
-                lcd_printf("X min: %u", max_x);
+                lcd_printf("X min: %u", min_x);
 
             } else if (stage == 3 && button_A_state == 1) stage++;
 
             if (stage == 4) {
-                min_y = adc(5);
+                max_y = adc(5);
                 lcd_locate(0, 3);
-                lcd_printf("Y max: %u", min_y);
+                lcd_printf("Y max: %u", max_y);
 
             } else if (stage == 5 && button_A_state == 1) stage++;
 
             else if (stage == 6) {
-                max_y = adc(5);
+                min_y = adc(5);
                 lcd_locate(0, 4);
-                lcd_printf("Y min: %u", max_y);
+                lcd_printf("Y min: %u", min_y);
 
             } else if (stage == 7 && button_A_state == 1) stage++;
 
             else if (stage == 8) {
                 motor_x = adc(4);
                 //TODO: Calculation
+
+                duty_x = 900 + ((float)motor_x - min_x)*1200/(max_x - min_x);
+                motor_init(0);
+                motor_set_duty(1,duty_x);
+
+
+               
                 lcd_locate(0, 5);
-                lcd_printf("Motor X: %u", motor_x);
+
+                lcd_printf("Duty X: %04u", duty_x);
 
             } else if (stage == 9 && button_A_state == 1) stage++;
 
             else if (stage == 10) {
                 motor_y = adc(5);
                 //TODO: Calculation
+                
+                duty_y = 900 + ((float)motor_y - min_y)*1200/(max_y - min_y);
+                motor_set_duty(0,duty_y);
+
+
                 lcd_locate(0, 6);
-                lcd_printf("Motor Y: %u", motor_y);
+                lcd_printf("Duty Y: %04u", duty_y);
 
             } else if (stage == 11 && button_A_state == 1) stage++;
 
             tick = 0;
         }
     }
+
+
+
+
+ /*   int duty = 900;// (900 - 2100)
+
+
+    
+    motor_init(0);
+    motor_set_duty(1,duty);
+    while(1);*/
 }
