@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../main.c
+SOURCEFILES_QUOTED_IF_SPACED=../main.c flexmotor.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/flexmotor.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/flexmotor.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/main.o
+OBJECTFILES=${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/flexmotor.o
 
 # Source Files
-SOURCEFILES=../main.c
+SOURCEFILES=../main.c flexmotor.c
 
 
 CFLAGS=
@@ -86,6 +86,13 @@ ${OBJECTDIR}/_ext/1472/main.o: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../main.c  -o ${OBJECTDIR}/_ext/1472/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1    -omf=coff -O0 -I"../../includes" -I".." -I"." -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/flexmotor.o: flexmotor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/flexmotor.o.d 
+	@${RM} ${OBJECTDIR}/flexmotor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  flexmotor.c  -o ${OBJECTDIR}/flexmotor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/flexmotor.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1    -omf=coff -O0 -I"../../includes" -I".." -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/flexmotor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/_ext/1472/main.o: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
@@ -93,6 +100,13 @@ ${OBJECTDIR}/_ext/1472/main.o: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../main.c  -o ${OBJECTDIR}/_ext/1472/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d"        -g -omf=coff -O0 -I"../../includes" -I".." -I"." -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/flexmotor.o: flexmotor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/flexmotor.o.d 
+	@${RM} ${OBJECTDIR}/flexmotor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  flexmotor.c  -o ${OBJECTDIR}/flexmotor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/flexmotor.o.d"        -g -omf=coff -O0 -I"../../includes" -I".." -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/flexmotor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
