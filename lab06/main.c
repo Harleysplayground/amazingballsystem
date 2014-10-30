@@ -68,7 +68,7 @@ void main() {
 
             if (sample == 5) {
                 sample = 0;
-                int time, j, x1, x2, x3, y1, y2, y3;
+                int j, x1, x2, x3, y1, y2, y3;
                 x1 = pos_hist[0][0];
                 y1 = pos_hist[1][0];
                 x2 = x1;
@@ -76,27 +76,25 @@ void main() {
                 x3 = x2;
                 y3 = y2;
 
-                for (time = 0; time < 3; time++) {
-                    for (j = 1; j < 5; j++) {
-                        if (x1 > pos_hist[0][j])
-                            x1 = pos_hist[0][j];
-                        if (y1 > pos_hist[1][j])
-                            y1 = pos_hist[1][j];
-                    }
+                for (j = 1; j < 5; j++) {
+                    if (x1 > pos_hist[0][j])
+                        x1 = pos_hist[0][j];
+                    if (y1 > pos_hist[1][j])
+                        y1 = pos_hist[1][j];
+                }
 
-                    for (j = 1; j < 5; j++) {
-                        if (x2 > x1)
-                            x2 = pos_hist[0][j];
-                        if (y2 > y1)
-                            y2 = pos_hist[1][j];
-                    }
+                for (j = 1; j < 5; j++) {
+                    if (x2 > x1)
+                        x2 = pos_hist[0][j];
+                    if (y2 > y1)
+                        y2 = pos_hist[1][j];
+                }
 
-                    for (j = 1; j < 5; j++) {
-                        if (x3 > x2)
-                            x3 = pos_hist[0][j];
-                        if (y3 > y2)
-                            y3 = pos_hist[1][j];
-                    }
+                for (j = 1; j < 5; j++) {
+                    if (x3 > x2)
+                        x3 = pos_hist[0][j];
+                    if (y3 > y2)
+                        y3 = pos_hist[1][j];
                 }
                 lcd_locate(0, 1);
                 lcd_printf("x: %05d", x3);
