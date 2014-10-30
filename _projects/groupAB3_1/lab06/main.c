@@ -47,33 +47,62 @@ void main() {
     lcd_locate(0, 0);
     lcd_printf("Group No.1");
 
-    /* -------- INIT ADC -------- */
-
-    CLEARBIT(AD1CON1bits.ADON);
-    SETBIT(TRISBbits.TRISB15); //set TRISE RE8 to input
-    SETBIT(TRISBbits.TRISB9); //set TRISE RE8 to input
-    CLEARBIT(AD1PCFGLbits.PCFG15); //set AD1 AN20 input pin as analog
-    CLEARBIT(AD1PCFGLbits.PCFG9); //set AD1 AN20 input pin as analog
-    CLEARBIT(AD1CON1bits.AD12B); //set 10b Operation Mode
-    AD1CON1bits.FORM = 0; //set integer output
-    AD1CON1bits.SSRC = 0x7; //set automatic conversion
-    AD1CON2 = 0; //not using scanning sampling
-    CLEARBIT(AD1CON3bits.ADRC); //internal clock source
-    AD1CON3bits.SAMC = 0x1F; //sample-to-conversion clock = 31Tad
-    AD1CON3bits.ADCS = 0x2; //Tad = 3Tcy (Time cycles)
-    //Leave AD1CON4 at its default value
-    SETBIT(AD1CON1bits.ADON);
-
     touch_init();
-    touch_select_dim(1);
 
     int tick = 0;
+    int dim = 0;
+    int sample = 0;
+    uint16_t pos_hist[2][5] = {
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0}
+    };
+
+    touch_select_dim(dim);
 
     while (1) {
-        if (++tick == 20000) {
+        if (++tick == 10000) {
             tick = 0;
-            lcd_locate(0, 1);
-            lcd_printf("chan: %05d", touch_adc());
+            pos_hist[dim][sample] = touch_adc(dim);
+            touch_select_dim(dim ^= 1);
+            sample += dim;
+
+            if (sample == 5) {
+                sample = 0;
+                int time, j, x1, x2, x3, y1, y2, y3;
+                x1 = pos_hist[0][0];
+                y1 = pos_hist[1][0];
+                x2 = x1;
+                y2 = y1;
+                x3 = x2;
+                y3 = y2;
+
+                for (time = 0; time < 3; time++) {
+                    for (j = 1; j < 5; j++) {
+                        if (x1 > pos_hist[0][j])
+                            x1 = pos_hist[0][j];
+                        if (y1 > pos_hist[1][j])
+                            y1 = pos_hist[1][j];
+                    }
+
+                    for (j = 1; j < 5; j++) {
+                        if (x2 > x1)
+                            x2 = pos_hist[0][j];
+                        if (y2 > y1)
+                            y2 = pos_hist[1][j];
+                    }
+
+                    for (j = 1; j < 5; j++) {
+                        if (x3 > x2)
+                            x3 = pos_hist[0][j];
+                        if (y3 > y2)
+                            y3 = pos_hist[1][j];
+                    }
+                }
+                lcd_locate(0, 1);
+                lcd_printf("x: %05d", x3);
+                lcd_locate(0, 2);
+                lcd_printf("y: %05d", y3);
+            }
         }
     }
 }
