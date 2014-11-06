@@ -5,6 +5,8 @@
 #include <libpic30.h>
 #include <stdint.h>
 
+
+// chan is ignored
 void motor_init(int chan) {
     //Timer OC8
     T2CONbits.TON = 0;
@@ -15,11 +17,12 @@ void motor_init(int chan) {
     IFS0bits.T2IF = 0;
     IEC0bits.T2IE = 0;
     PR2 = 4000; //20ms
-
-
 }
 
+// chan 0 = x axis 1 = y axis
+// duty from 900 to 2100
 void motor_set_duty(int chan, int duty_us) {
+    if (duty_us < 900 || duty_us > 2100) return;
 
     //    int duty_x = duty_us / 5;
     int duty_y = 4000 - duty_us / 5;
