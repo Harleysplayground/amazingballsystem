@@ -8,6 +8,8 @@
       <itemPath>types.h</itemPath>
       <itemPath>led.h</itemPath>
       <itemPath>performance.h</itemPath>
+      <itemPath>flexmotor.h</itemPath>
+      <itemPath>flextouch.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +20,8 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>performance.c</itemPath>
+      <itemPath>flexmotor.c</itemPath>
+      <itemPath>flextouch.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -27,6 +31,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../../CS431/cs431/LabUpdate/labs/includes</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

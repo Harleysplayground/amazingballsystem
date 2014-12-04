@@ -21,10 +21,10 @@ unsigned int getQEI() {
 
 void setMotorDuty(uint8_t chan, uint16_t duty_us) {
   switch (chan) {
-  case MOTOR_X_CHAN:
+  case 0:
     Tx = duty_us - 1500;
     break;
-  case MOTOR_Y_CHAN:
+  case 1:
     Ty = duty_us - 1500;
     break;
   }
