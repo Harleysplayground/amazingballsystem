@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c performance.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c performance.c flexmotor.c flextouch.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/performance.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/performance.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/performance.o ${OBJECTDIR}/flexmotor.o ${OBJECTDIR}/flextouch.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/performance.o.d ${OBJECTDIR}/flexmotor.o.d ${OBJECTDIR}/flextouch.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/performance.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/performance.o ${OBJECTDIR}/flexmotor.o ${OBJECTDIR}/flextouch.o
 
 # Source Files
-SOURCEFILES=main.c performance.c
+SOURCEFILES=main.c performance.c flexmotor.c flextouch.c
 
 
 CFLAGS=
@@ -93,6 +93,20 @@ ${OBJECTDIR}/performance.o: performance.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  performance.c  -o ${OBJECTDIR}/performance.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/performance.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1    -omf=coff -O0 -I"../../../includes" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/performance.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/flexmotor.o: flexmotor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/flexmotor.o.d 
+	@${RM} ${OBJECTDIR}/flexmotor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  flexmotor.c  -o ${OBJECTDIR}/flexmotor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/flexmotor.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1    -omf=coff -O0 -I"../../../includes" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/flexmotor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/flextouch.o: flextouch.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/flextouch.o.d 
+	@${RM} ${OBJECTDIR}/flextouch.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  flextouch.c  -o ${OBJECTDIR}/flextouch.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/flextouch.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1    -omf=coff -O0 -I"../../../includes" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/flextouch.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
@@ -107,6 +121,20 @@ ${OBJECTDIR}/performance.o: performance.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/performance.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  performance.c  -o ${OBJECTDIR}/performance.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/performance.o.d"        -g -omf=coff -O0 -I"../../../includes" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/performance.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/flexmotor.o: flexmotor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/flexmotor.o.d 
+	@${RM} ${OBJECTDIR}/flexmotor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  flexmotor.c  -o ${OBJECTDIR}/flexmotor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/flexmotor.o.d"        -g -omf=coff -O0 -I"../../../includes" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/flexmotor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/flextouch.o: flextouch.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/flextouch.o.d 
+	@${RM} ${OBJECTDIR}/flextouch.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  flextouch.c  -o ${OBJECTDIR}/flextouch.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/flextouch.o.d"        -g -omf=coff -O0 -I"../../../includes" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/flextouch.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

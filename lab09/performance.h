@@ -1,5 +1,6 @@
 #ifndef PERFORMANCE_H
 #define	PERFORMANCE_H
+#include "types.h"
 
 #define W1 0.01    // 6 digits
 #define W2 0.01 // 6 digits
