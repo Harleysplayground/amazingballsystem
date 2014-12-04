@@ -100,11 +100,11 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x9a2           0xe73  (3699)
 .const                       0xba2                0x1c            0x2a  (42)
-.text                        0xbbe               0x512           0x79b  (1947)
-.dinit                      0x10d0                0xca           0x12f  (303)
-.text                       0x119a                0x94            0xde  (222)
+.text                        0xbbe               0x500           0x780  (1920)
+.dinit                      0x10be                0xca           0x12f  (303)
+.text                       0x1188                0x94            0xde  (222)
 
-                     Total program memory used (bytes):         0x1845  (6213) 2%
+                     Total program memory used (bytes):         0x182a  (6186) 2%
 
 
 Data Memory  [Origin = 0x800, Length = 0x7800]
@@ -195,9 +195,9 @@ External Symbols in Program Memory (by address):
                   0x000ece                  _gotoPosition
                   0x000ef0                  _gotoLine
                   0x000f1c                  _main
-                  0x00119a                  _touch_init
-                  0x0011da                  _touch_select_dim
-                  0x001202                  _touch_adc
+                  0x001188                  _touch_init
+                  0x0011c8                  _touch_select_dim
+                  0x0011f0                  _touch_adc
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -243,9 +243,9 @@ External Symbols in Program Memory (by name):
                   0x000cee                  _toggleFont
                   0x000dca                  _togglePixel
                   0x000e66                  _toggleSplash
-                  0x001202                  _touch_adc
-                  0x00119a                  _touch_init
-                  0x0011da                  _touch_select_dim
+                  0x0011f0                  _touch_adc
+                  0x001188                  _touch_init
+                  0x0011c8                  _touch_select_dim
                   0x000d62                  _uploadSprite
 
 Memory Configuration
@@ -2059,7 +2059,7 @@ __c30_signature
 .const              0x8ba2         0x1c load address 0x000ba2  
  .const             0x8ba2         0x1c build/default/production/_ext/1472/main.o
 
-.text             0x000bbe        0x512
+.text             0x000bbe        0x500
  .text            0x000bbe        0x35e ../lcd.a(lcd.o)
                   0x000bbe                  lcd_initialize
                   0x000bd2                  lcd_send
@@ -2086,14 +2086,14 @@ __c30_signature
                   0x000e74                  drawData
                   0x000ece                  gotoPosition
                   0x000ef0                  gotoLine
- .text            0x000f1c        0x1b4 build/default/production/_ext/1472/main.o
+ .text            0x000f1c        0x1a2 build/default/production/_ext/1472/main.o
                   0x000f1c                  main
 
-.dinit            0x0010d0         0xca
- .dinit           0x0010d0         0xca data_init
+.dinit            0x0010be         0xca
+ .dinit           0x0010be         0xca data_init
 
-.text             0x00119a         0x94
- .text            0x00119a         0x94 build/default/production/_ext/1472/flextouch.o
-                  0x00119a                  touch_init
-                  0x0011da                  touch_select_dim
-                  0x001202                  touch_adc
+.text             0x001188         0x94
+ .text            0x001188         0x94 build/default/production/_ext/1472/flextouch.o
+                  0x001188                  touch_init
+                  0x0011c8                  touch_select_dim
+                  0x0011f0                  touch_adc
