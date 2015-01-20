@@ -73,7 +73,7 @@ int dim = 1;
 
 double pidX_controller(uint16_t Xp) {
     double pid;
-    // TODO: Implement PID X
+    //Implement PID X
     double error = Xpos_set - Xp;
     integral += error * 0.05;
     derivative[0] = (error - previous_error[0]) / 0.05;
@@ -85,7 +85,7 @@ double pidX_controller(uint16_t Xp) {
 
 double pidY_controller(uint16_t Yp) {
     double pid;
-    // TODO: Implement PID Y
+    //Implement PID Y
     double error = Ypos_set - Yp;
     integral += error * 0.05;
     derivative[1] = (error - previous_error[1]) / 0.05;
@@ -160,7 +160,7 @@ int main() {
 
             pidX = pidX_controller(Xpos);
 
-            // TODO: Convert PID to motor duty cycle (900-2100 us)
+            //Convert PID to motor duty cycle (900-2100 us)
             duty_us_x = 1500 + pidX * 1.5;
 
 
@@ -213,12 +213,12 @@ void __attribute__((interrupt, auto_psv)) _T1Interrupt(void) {
         deadline_miss++;
 
     if (select == X_DIM) {
-        // TODO: read 5 samples from X-dimension and set Xpos as the median
+        //read 5 samples from X-dimension and set Xpos as the median
         Xpos = touch_adc();
         touch_select_dim(Y_DIM);
         select = Y_DIM;
     } else {
-        // TODO: read 5 samples from Y-dimension and set Ypos as the median
+        //read 5 samples from Y-dimension and set Ypos as the median
         Ypos = touch_adc();
         touch_select_dim(X_DIM);
         select = X_DIM;
